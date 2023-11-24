@@ -6,7 +6,7 @@
 #    By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 08:03:22 by mfaoussi          #+#    #+#              #
-#    Updated: 2023/11/24 08:10:35 by mfaoussi         ###   ########.fr        #
+#    Updated: 2023/11/24 09:23:07 by mfaoussi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OBJ = $(SRC:.c=.o)
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-NAME = printf.a
+NAME = libftprintf.a
 
 all: $(NAME)
 
