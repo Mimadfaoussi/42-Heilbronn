@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   minilibft.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 08:11:32 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/11/27 08:20:30 by mfaoussi         ###   ########.fr       */
+/*   Created: 2023/11/25 08:53:53 by mfaoussi          #+#    #+#             */
+/*   Updated: 2023/11/26 10:33:53 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include <ctype.h>
+#ifndef MINILIBFT_H
+# define MINILIBFT_H
+
 # include <unistd.h>
+#include <stdlib.h>
 
-int		ft_printf(const char *format, ...);
-char	*hex_converter(int nb);
-int		hextcount(int nb);
-
-// void	ft_putchar_fd(char c, int fd);
-// void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd, int *count);
+void	ft_putnbr_fd(int n, int fd, int *count);
+void	ft_putstr_fd(char *s, int fd, int *count);
+char	*ft_strdup(const char *str);
 
 #endif

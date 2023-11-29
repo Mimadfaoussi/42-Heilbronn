@@ -6,25 +6,55 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:57:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/11/24 09:23:16 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/11/27 08:36:03 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include "00-mini-libft/minilibft.h"
 
-// void	ft_putchar_fd(char c, int fd)
+int	hextcount(int nb)
+{
+	int	i;
+
+	i = 0;
+	while (nb > 0)
+	{
+		nb = nb / 16;
+		i++;
+	}
+	return (i + 1);
+}
+
+char	*hex_converter(int nb)
+{
+	int		mod;
+	char	*result;
+	char	*alpha;
+	int		i;
+
+	if (nb == 0)
+		return (ft_strdup("0"));
+	alpha = ft_strdup("0123456789ABCDEF");
+	result = malloc(sizeof(char) * hextcount(nb));
+	if (!result)
+		return (NULL);
+	i = hextcount(nb) - 2;
+	result[i + 1] = '\0';
+	while (nb > 0)
+	{
+		mod = nb % 16;
+		result[i] = alpha[mod];
+		i--;
+		nb = nb / 16;
+	}
+	return (result);
+}
+
+// int main()
 // {
-// 	write(fd, &c, 1);
-// }
-
-// void	ft_putstr_fd(char *s, int fd)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 	{
-// 		ft_putchar_fd(s[i], fd);
-// 		i++;
-// 	}
+// 	int	i = 0;
+// 	printf("%s\n",hex_converter(i));
+// 	printf("%x\n",i);
+// 	return (0);
 // }
