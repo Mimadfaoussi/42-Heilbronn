@@ -6,28 +6,33 @@
 #    By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 08:03:22 by mfaoussi          #+#    #+#              #
-#    Updated: 2023/11/24 11:49:45 by mfaoussi         ###   ########.fr        #
+#    Updated: 2023/12/30 09:43:29 by mfaoussi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_printf.c 
+SRC = ft_printf.c hex.c \
+		./00-mini-libft/ft_putchar_fd.c ./00-mini-libft/ft_putstr_fd.c \
+		./00-mini-libft/ft_putnbr_fd.c ./00-mini-libft/ft_strdup.c
+
 OBJ = $(SRC:.c=.o)
 CC = cc
-RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-LIBFT = ../00-libft/libft.a
+RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
+%.o : %.c
+		$(CC) -c $(CFLAGS) $< -o $@
+
+$(NAME): $(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
 clean:
 		$(RM) $(OBJ)
 
-fclean:
-		$(RM) $(NAME) $(OBJ)
+fclean: clean
+		$(RM) $(NAME)
 
 re:		fclean $(NAME)
 

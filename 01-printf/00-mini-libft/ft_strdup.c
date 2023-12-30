@@ -6,11 +6,11 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:04:29 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/11/26 10:30:51 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/30 08:52:38 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibft.h"
+#include "../ft_printf.h"
 
 char	*ft_strdup(const char *str)
 {

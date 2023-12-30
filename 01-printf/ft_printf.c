@@ -6,12 +6,11 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:10:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/11/27 08:39:58 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/30 09:39:20 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "00-mini-libft/minilibft.h"
+#include "ft_printf.h"
 
 static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 {
@@ -29,6 +28,11 @@ static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 		ft_putstr_fd(hex_converter(va_arg(*list, int)), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == '%')
 		ft_putchar_fd('%', 1, c);
+	else
+	{
+		*i = *i + 1;
+		return ;
+	}
 	*i = *i + 2;
 }
 
@@ -51,12 +55,14 @@ int	ft_printf(const char *format, ...)
 			i++;
 		}
 	}
+	va_end(list);
 	return (count);
 }
 
 int main(void)
 {
-	int	i = ft_printf("He%d%d%d w%drld hex = %x , which is %s called %c \n",1,1,0,0,1222354,"vendetta",'V');
-	//printf("",i);
+	int	i = ft_printf("%x\n",255);
+	int j = printf("%x\n",255);
+	printf("%d\n%d\n",i,j);
 	return (0);
 }

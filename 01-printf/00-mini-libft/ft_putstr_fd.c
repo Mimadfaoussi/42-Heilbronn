@@ -6,13 +6,13 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:46:46 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/11/25 09:29:22 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/30 09:17:24 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibft.h"
+#include "../ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd, int *count)
+void	print_null(char *s, int fd, int *count)
 {
 	int	i;
 
@@ -21,5 +21,22 @@ void	ft_putstr_fd(char *s, int fd, int *count)
 	{
 		ft_putchar_fd(s[i], fd, count);
 		i++;
+	}
+}
+
+void	ft_putstr_fd(char *s, int fd, int *count)
+{
+	int	i;
+
+	i = 0;
+	if (s == NULL)
+		print_null("(null)", fd, count);
+	else
+	{
+		while (s[i] != '\0')
+		{
+			ft_putchar_fd(s[i], fd, count);
+			i++;
+		}
 	}
 }
