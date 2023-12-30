@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:57:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/30 08:52:59 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/30 10:58:35 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,33 @@ int	hextcount(int nb)
 	}
 	return (i + 1);
 }
+// will check if number is negative and prepare it 
 
-char	*hex_converter(int nb)
+int	checker(int nb)
+{
+	if (nb < 0)
+	{
+		nb = INT_MAX + nb;
+	}
+	return (nb);
+}
+// mode 1 for UPPERCASE
+// else for lowercase
+
+char	*hex_converter(int nb, int mode)
 {
 	int		mod;
 	char	*result;
 	char	*alpha;
 	int		i;
 
+	nb = checker(nb);
 	if (nb == 0)
 		return (ft_strdup("0"));
-	alpha = ft_strdup("0123456789ABCDEF");
+	if (mode == 1)
+		alpha = ft_strdup("0123456789ABCDEF");
+	else
+		alpha = ft_strdup("0123456789abcdef");
 	result = malloc(sizeof(char) * hextcount(nb));
 	if (!result)
 		return (NULL);
@@ -49,11 +65,3 @@ char	*hex_converter(int nb)
 	}
 	return (result);
 }
-
-// int main()
-// {
-// 	int	i = 0;
-// 	printf("%s\n",hex_converter(i));
-// 	printf("%x\n",i);
-// 	return (0);
-// }

@@ -6,7 +6,7 @@
 #    By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 08:03:22 by mfaoussi          #+#    #+#              #
-#    Updated: 2023/12/30 09:43:29 by mfaoussi         ###   ########.fr        #
+#    Updated: 2023/12/30 09:52:18 by mfaoussi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,16 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 RM = rm -f
+EXEC = exec
 
 all: $(NAME)
 
-%.o : %.c
-		$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJ)
 		ar rcs $(NAME) $(OBJ)
+
+$(NAME): $(OBJ)
+		$(CC) $(CFLAGS) $(SRC) -o $(EXEC) 
 
 clean:
 		$(RM) $(OBJ)
