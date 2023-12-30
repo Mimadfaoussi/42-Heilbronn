@@ -6,7 +6,7 @@
 #    By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 08:03:22 by mfaoussi          #+#    #+#              #
-#    Updated: 2023/12/30 09:52:18 by mfaoussi         ###   ########.fr        #
+#    Updated: 2023/12/30 14:13:50 by mfaoussi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
-$(NAME): $(OBJ)
-		$(CC) $(CFLAGS) $(SRC) -o $(EXEC) 
 
 clean:
 		$(RM) $(OBJ)

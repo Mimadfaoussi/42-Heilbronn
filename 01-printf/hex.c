@@ -6,13 +6,15 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:57:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/30 10:58:35 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:48:07 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	hextcount(int nb)
+//counts the number of bytes we need to represent hex
+
+int	hextcount(unsigned int nb)
 {
 	int	i;
 
@@ -26,18 +28,18 @@ int	hextcount(int nb)
 }
 // will check if number is negative and prepare it 
 
-int	checker(int nb)
+unsigned int	checker(unsigned int nb)
 {
 	if (nb < 0)
 	{
-		nb = INT_MAX + nb;
+		nb = UINT_MAX + nb;
 	}
 	return (nb);
 }
 // mode 1 for UPPERCASE
 // else for lowercase
 
-char	*hex_converter(int nb, int mode)
+char	*hex_converter(unsigned int nb, int mode)
 {
 	int		mod;
 	char	*result;
@@ -65,3 +67,8 @@ char	*hex_converter(int nb, int mode)
 	}
 	return (result);
 }
+// void	hexwrite(unsigned int nb, int mode, int fd, int *count)
+// {
+// 	char	*hex;
+// }
+// ft_putstr_fd(hex_converter(va_arg(*list, unsigned long), 1), 1, c);
