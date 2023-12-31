@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:10:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/30 14:13:11 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/31 17:53:39 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 {
 	if (format[*i] == '%' && format[*i + 1] == 'd')
 		ft_putnbr_fd(va_arg(*list, int), 1, c);
+	else if (format[*i] == '%' && format[*i + 1] == 'p')
+		//convert it to int into hex not from unsigned long 
 	else if (format[*i] == '%' && format[*i + 1] == 's')
 		ft_putstr_fd(va_arg(*list, char *), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == 'c')
@@ -23,9 +25,9 @@ static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 	else if (format[*i] == '%' && format[*i + 1] == 'f')
 		ft_putnbr_fd(va_arg(*list, double), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == 'X')
-		ft_putstr_fd(hex_converter(va_arg(*list, unsigned long), 1), 1, c);
+		hexwrite(va_arg(*list, unsigned long), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == 'x')
-		ft_putstr_fd(hex_converter(va_arg(*list, unsigned long), 2), 1, c);
+		hexwrite(va_arg(*list, unsigned long), 2, c);
 	else if (format[*i] == '%' && format[*i + 1] == '%')
 		ft_putchar_fd('%', 1, c);
 	else
@@ -61,8 +63,8 @@ int	ft_printf(const char *format, ...)
 
 // int main(void)
 // {
-// 	int	i = ft_printf("%X\n",-12454);
-// 	int j = printf("%X\n", -12454 );
+// 	int	i = ft_printf("%d\n",-12454);
+// 	int j = printf("%d\n", -12454 );
 // 	printf("%d\n%d\n",i,j);
 // 	return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:57:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/30 14:48:07 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2023/12/31 10:45:26 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ unsigned int	checker(unsigned int nb)
 
 char	*hex_converter(unsigned int nb, int mode)
 {
-	int		mod;
 	char	*result;
 	char	*alpha;
 	int		i;
@@ -60,15 +59,19 @@ char	*hex_converter(unsigned int nb, int mode)
 	result[i + 1] = '\0';
 	while (nb > 0)
 	{
-		mod = nb % 16;
-		result[i] = alpha[mod];
+		result[i] = alpha[nb % 16];
 		i--;
 		nb = nb / 16;
 	}
+	free(alpha);
 	return (result);
 }
-// void	hexwrite(unsigned int nb, int mode, int fd, int *count)
-// {
-// 	char	*hex;
-// }
-// ft_putstr_fd(hex_converter(va_arg(*list, unsigned long), 1), 1, c);
+
+void	hexwrite(unsigned int nb, int mode, int *count)
+{
+	char	*hex;
+
+	hex = hex_converter(nb, mode);
+	ft_putstr_fd(hex, 1, count);
+	free(hex);
+}

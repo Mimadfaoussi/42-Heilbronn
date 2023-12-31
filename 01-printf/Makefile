@@ -6,11 +6,11 @@
 #    By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 08:03:22 by mfaoussi          #+#    #+#              #
-#    Updated: 2023/12/30 14:13:50 by mfaoussi         ###   ########.fr        #
+#    Updated: 2023/12/31 13:54:11 by mfaoussi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_printf.c hex.c \
+SRC = ft_printf.c hex.c pointer.c \
 		./00-mini-libft/ft_putchar_fd.c ./00-mini-libft/ft_putstr_fd.c \
 		./00-mini-libft/ft_putnbr_fd.c ./00-mini-libft/ft_strdup.c
 
