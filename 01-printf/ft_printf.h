@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:11:32 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/31 17:49:01 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/01/01 10:01:18 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			ft_putstr_fd(char *s, int fd, int *count);
 char			*ft_strdup(const char *str);
 void			print_null(char *s, int fd, int *count);
 unsigned int	checker(unsigned int nb);
-void			print_pointer(int *address, int *count);
+void			print_pointer(long address, int *count);
 
 // void	ft_putchar_fd(char c, int fd);
 // void	ft_putstr_fd(char *s, int fd);

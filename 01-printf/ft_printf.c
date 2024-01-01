@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:10:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/31 17:53:39 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/01/01 10:01:06 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 	if (format[*i] == '%' && format[*i + 1] == 'd')
 		ft_putnbr_fd(va_arg(*list, int), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == 'p')
-		//convert it to int into hex not from unsigned long 
+		print_pointer(va_arg(*list, long), c);
 	else if (format[*i] == '%' && format[*i + 1] == 's')
 		ft_putstr_fd(va_arg(*list, char *), 1, c);
 	else if (format[*i] == '%' && format[*i + 1] == 'c')

@@ -2,9 +2,11 @@
 
 int main(void)
 {
-	int	i = ft_printf("%X\n",42);
-	int j = printf("%X\n", 42 );
-	printf("%p    %p\n",&i,&j);
-	ft_printf("%p     %p\n",&i, &j);
+	int	i = 222;
+	int *j = &i;
+	int x = printf("%p\n",LONG_MIN);
+	int y = ft_printf("%p\n",LONG_MIN);
+	if (x == y)
+		printf("success\n");
 	return (0);
 }
