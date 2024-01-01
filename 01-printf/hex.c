@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:57:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/31 10:45:26 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/01/01 10:05:03 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //counts the number of bytes we need to represent hex
 
-int	hextcount(unsigned int nb)
+int	hextcount(unsigned long long nb)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	hextcount(unsigned int nb)
 }
 // will check if number is negative and prepare it 
 
-unsigned int	checker(unsigned int nb)
+unsigned int	checker(unsigned long long nb)
 {
 	if (nb < 0)
 	{
@@ -39,7 +39,7 @@ unsigned int	checker(unsigned int nb)
 // mode 1 for UPPERCASE
 // else for lowercase
 
-char	*hex_converter(unsigned int nb, int mode)
+char	*hex_converter(unsigned long long nb, int mode)
 {
 	char	*result;
 	char	*alpha;
@@ -67,7 +67,7 @@ char	*hex_converter(unsigned int nb, int mode)
 	return (result);
 }
 
-void	hexwrite(unsigned int nb, int mode, int *count)
+void	hexwrite(unsigned long long nb, int mode, int *count)
 {
 	char	*hex;
 
