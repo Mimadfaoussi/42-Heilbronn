@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:10:42 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/01/01 10:31:01 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/01/01 11:50:03 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	format_specifier(const char *format, int *i, va_list *list, int *c)
 {
-	if (format[*i] == '%' && format[*i + 1] == 'd')
+	if (format[*i] == '%' && (format[*i + 1] == 'd' || format[*i + 1] == 'i' ))
 		ft_putnbr_fd(va_arg(*list, int), 1, c);
-	else if (format[*i] == '%' && format[*i + 1] == 'i')
-		ft_putnbr_fd(va_arg(*list, int), 1, c);
+	else if (format[*i] == '%' && format[*i + 1] == 'u')
+		print_u(va_arg(*list, long), c);
 	else if (format[*i] == '%' && format[*i + 1] == 'p')
 		print_pointer(va_arg(*list, unsigned long long), c);
 	else if (format[*i] == '%' && format[*i + 1] == 's')

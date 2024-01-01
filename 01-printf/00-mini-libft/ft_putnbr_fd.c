@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:49:22 by mfaoussi          #+#    #+#             */
-/*   Updated: 2023/12/31 17:49:17 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/01/01 11:46:25 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	negative(int *count, int fd)
 	*count = *count + 11;
 }
 
-void	ft_putnbr_fd(int n, int fd, int *count)
+void	ft_putnbr_fd(long n, int fd, int *count)
 {
 	char	c;
 
